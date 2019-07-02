@@ -1,0 +1,32 @@
+<div id="ces_desktop_contact_link">
+	<ul class="ces-social-info">
+		{% for social_login in social_logins %}
+			<li class="ces-social-info-li">
+				<a href="{{ social_login.href }}" title="{{ social_login.title }}" target="_blank">
+					<img src="{{ social_login.src }}" class="img img-responsive" width="24" />
+				</a>
+			</li>
+		{% endfor %}
+	</ul>		
+</div>
+
+<style>
+	.ces-social-info-li {
+		vertical-align: text-bottom;
+	}
+</style>
+
+<script>
+	jQuery.fn.outerHTML = function() {
+	return jQuery('<div />').append(this.eq(0).clone()).html();
+	};
+
+	$(document).ready(function (){
+		let brand_html = $('#ces_desktop_contact_link ul').html();//.outerHTML();
+		$('#ces_desktop_contact_link ul').remove();
+		$('#top-links .list-inline').prepend(brand_html);	
+	});
+
+
+	// 
+</script>
